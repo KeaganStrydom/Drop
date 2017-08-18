@@ -1,0 +1,354 @@
+import UIKit
+
+class setupController : NSObject {
+    
+    let screenCGRect = UIScreen.main.bounds
+    
+    func setupLogin(view: UIView!, backView: UIView, background: UIView, logoName : UILabel, emailTextField: UITextField, passwordTextField: UITextField, loginButton : UIButton, nameTextField: UITextField, loginRegisterSegmentedControl: UISegmentedControl, profileImage: UIImageView, logoPhoto: UIImageView)
+    {
+        // Background Adjustment
+        background.backgroundColor = UIColor(red: 50/255, green: 70/255, blue: 100/255, alpha: 1)
+        background.frame = CGRect(x: 0, y: 0, width: screenCGRect.width, height: screenCGRect.height)
+        //LogoName Text
+        logoName.text = "DROP"
+        logoName.translatesAutoresizingMaskIntoConstraints = false
+        logoName.textColor = UIColor(red: 50, green: 50, blue: 50, alpha: 1)
+        logoName.font = UIFont(name : "Futura", size : 0.05 * screenCGRect.height  )
+        //Logo Photo 
+        logoPhoto.image = UIImage(named: "RainDrop")
+        logoPhoto.translatesAutoresizingMaskIntoConstraints = false
+        //Name Text Field
+        nameTextField.placeholder = "Full Name"
+        nameTextField.font = UIFont(name: "System", size: 17)
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.spellCheckingType = .no
+        nameTextField.autocorrectionType = .no
+        nameTextField.borderStyle = .roundedRect
+        nameTextField.textAlignment = .center
+        nameTextField.textColor = .lightGray
+        //Email Text Field
+        emailTextField.placeholder = "Email"
+        emailTextField.font = UIFont(name: "System", size: 17)
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        emailTextField.spellCheckingType = .no
+        emailTextField.autocorrectionType = .no
+        emailTextField.autocapitalizationType = .none
+        emailTextField.borderStyle = .roundedRect
+        emailTextField.textAlignment = .center
+        emailTextField.textColor = .lightGray
+        //Password Text Field
+        passwordTextField.placeholder = "Password"
+        passwordTextField.font = UIFont(name: "System", size: 17)
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.spellCheckingType = .no
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.textAlignment = .center
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.textColor = .lightGray
+        //Login Buttom
+        loginButton.backgroundColor = UIColor(red: 0, green: 200/225, blue: 100/225, alpha: 1)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        loginButton.setTitle("Register", for: .normal)
+        loginButton.titleLabel?.font = UIFont(name: "System", size: 17)
+        loginButton.layer.cornerRadius = 10
+        //Login / Register Segmented Control
+        loginRegisterSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        loginRegisterSegmentedControl.tintColor = .white
+        //Profiel Image
+        profileImage.image = UIImage(named: "Default")
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.isUserInteractionEnabled = true
+        profileImage.clipsToBounds = true
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.layer.cornerRadius = 48
+        // Add objects to the subview.
+        view.addSubview(background)
+        view.addSubview(logoName)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+         view.addSubview(nameTextField)
+        view.addSubview(loginButton)
+        view.addSubview(loginRegisterSegmentedControl)
+        view.addSubview(profileImage)
+        view.addSubview(logoPhoto)
+    }
+    func setupProfile(View: UIView!, ProfilePhoto: UIImageView, ProfilePhotoBorder: UIView, ProfileCover: UIImageView, ProfileCoverOverlay: UIView, NameLabel: UITextView, EmailLabel : UILabel, BiographyTextView: UITextView, saveButton: UIButton, savedLabel: UILabel, navigationController: UINavigationController!) {
+        //View
+        View.backgroundColor = UIColor(red: 90/255, green: 110/255, blue: 170/255, alpha: 1)
+        //Successful Label
+        savedLabel.text = ""
+        savedLabel.font = UIFont(name: "Futura", size: 15)
+        savedLabel.translatesAutoresizingMaskIntoConstraints = false
+        savedLabel.textColor = .white
+        savedLabel.backgroundColor = UIColor(red: 0, green: 200/225, blue: 100/225, alpha: 1)
+        savedLabel.frame = CGRect(x: 0, y: 0 + navigationController!.navigationBar.frame.height - 25 , width: View.frame.width, height: 25)
+        savedLabel.textAlignment = .center
+        //Profile Cover Overlay
+        ProfileCoverOverlay.backgroundColor = UIColor(red: 50/255, green: 70/255, blue: 100/255, alpha: 0.8)
+        ProfileCoverOverlay.translatesAutoresizingMaskIntoConstraints = false
+        //Profile Cover Image
+        ProfileCover.image = UIImage(named: "Nature")
+        ProfileCover.contentMode = .scaleAspectFill
+        ProfileCover.clipsToBounds = true
+        ProfileCover.translatesAutoresizingMaskIntoConstraints = false
+        //Profile Photo
+        ProfilePhoto.image = UIImage(named: "Default")
+        ProfilePhoto.contentMode = .scaleAspectFill
+        ProfilePhoto.layer.cornerRadius = 60
+        ProfilePhoto.clipsToBounds = true
+        ProfilePhoto.translatesAutoresizingMaskIntoConstraints = false
+        ProfilePhoto.isUserInteractionEnabled = true
+        //Profile Photo Border
+        ProfilePhotoBorder.backgroundColor = .white
+        ProfilePhotoBorder.layer.cornerRadius = 63
+        ProfilePhotoBorder.translatesAutoresizingMaskIntoConstraints = false
+        //Name Label
+        NameLabel.font = UIFont(name: "Futura-Bold", size: 20)
+        NameLabel.textAlignment = .center
+        NameLabel.textColor = .white
+        NameLabel.backgroundColor = .clear
+        NameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NameLabel.allowsEditingTextAttributes = true
+        NameLabel.bounces = false
+        //Email Label
+        EmailLabel.font = UIFont(name: "Futura", size: 19)
+        EmailLabel.textAlignment = .center
+        EmailLabel.textColor = .white
+        EmailLabel.translatesAutoresizingMaskIntoConstraints = false
+        //Biography Text View
+        BiographyTextView.textAlignment = .center
+        BiographyTextView.backgroundColor = .clear
+        BiographyTextView.textColor = .white
+        BiographyTextView.font = UIFont(name: "Futura", size: 19)
+        BiographyTextView.allowsEditingTextAttributes = false
+        BiographyTextView.translatesAutoresizingMaskIntoConstraints = false
+        //Save Button
+        saveButton.backgroundColor = UIColor(red: 0, green: 200/225, blue: 100/225, alpha: 1)
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.titleLabel?.font = UIFont(name: "System", size: 17)
+        saveButton.layer.cornerRadius = 10
+
+        //Add to subview
+        View.addSubview(ProfileCover)
+        View.addSubview(ProfileCoverOverlay)
+        View.addSubview(ProfilePhotoBorder)
+        View.addSubview(ProfilePhoto)
+        View.addSubview(NameLabel)
+        View.addSubview(EmailLabel)
+        View.addSubview(BiographyTextView)
+        View.addSubview(saveButton)
+        View.addSubview(savedLabel)
+    }
+    
+    func setUpMenu(view: UIView!, background: UIView, natureImage: UIImageView,ImageCover: UIView, yLineDivider: UIView, xLineDividerTop: UIView, xLineDividerBottom: UIView, ProfileIcon: UIImageView, DropIcon: UIImageView, ActivityIcon: UIImageView, MessagesIcon: UIImageView, SettingsIcon: UIImageView, FeedbackIcon: UIImageView, ProfileLabel: UILabel, DropLabel: UILabel, ActivityLabel: UILabel, MessagesLabel: UILabel, SettingsLabel: UILabel, FeedbackLabel: UILabel, ProfileButton: UIButton, DropButton: UIButton, ActivityButton: UIButton, MessagesButton: UIButton, SettingsButton: UIButton, FeedbackButton: UIButton){
+        //Background
+        background.backgroundColor = .white
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.clipsToBounds = true
+        //Nature Image
+        natureImage.image = UIImage(named: "Nature")
+        natureImage.clipsToBounds = true
+        natureImage.contentMode = .scaleAspectFill
+        natureImage.translatesAutoresizingMaskIntoConstraints = false
+        //yLineDivider
+        yLineDivider.clipsToBounds = true
+        yLineDivider.backgroundColor = .white
+        yLineDivider.translatesAutoresizingMaskIntoConstraints = false
+        //xLineDivider - Top
+        xLineDividerTop.clipsToBounds = true
+        xLineDividerTop.backgroundColor = .white
+        xLineDividerTop.translatesAutoresizingMaskIntoConstraints = false
+        //xLineDivider - Bottom
+        xLineDividerBottom.clipsToBounds = true
+        xLineDividerBottom.backgroundColor = .white
+        xLineDividerBottom.translatesAutoresizingMaskIntoConstraints = false
+        //Image Cover
+        ImageCover.clipsToBounds = true
+        ImageCover.backgroundColor = UIColor(red: 50/255, green: 70/255, blue: 100/255, alpha: 0.9)
+        ImageCover.translatesAutoresizingMaskIntoConstraints = false
+        //Profile Icon
+        ProfileIcon.image = UIImage(named: "Profile")
+        ProfileIcon.translatesAutoresizingMaskIntoConstraints = false
+        //Drop Icon
+        DropIcon.image = UIImage(named: "myDrops")
+        DropIcon.translatesAutoresizingMaskIntoConstraints = false
+        //Activity Icon
+        ActivityIcon.image = UIImage(named: "ActivityFeed")
+        ActivityIcon.translatesAutoresizingMaskIntoConstraints = false
+        //Message Icon
+        MessagesIcon.image = UIImage(named: "Messages")
+        MessagesIcon.translatesAutoresizingMaskIntoConstraints = false
+        //Settings Icon
+        SettingsIcon.image = UIImage(named: "Settings")
+        SettingsIcon.translatesAutoresizingMaskIntoConstraints = false
+        //Feedback Icon
+        FeedbackIcon.image = UIImage(named: "FeedBack")
+        FeedbackIcon.translatesAutoresizingMaskIntoConstraints = false
+        //Profile Label
+        ProfileLabel.text = "Profile"
+        ProfileLabel.font = UIFont(name: "System", size: 15)
+        ProfileLabel.textColor = .white
+        ProfileLabel.translatesAutoresizingMaskIntoConstraints = false
+        //Drop Label
+        DropLabel.text = "My Drops"
+        DropLabel.font = UIFont(name: "System", size: 15)
+        DropLabel.textColor = .white
+        DropLabel.translatesAutoresizingMaskIntoConstraints = false
+        //Activity Label
+        ActivityLabel.text = "Activity"
+        ActivityLabel.font = UIFont(name: "System", size: 15)
+        ActivityLabel.textColor = .white
+        ActivityLabel.translatesAutoresizingMaskIntoConstraints = false
+        //Messages Label
+        MessagesLabel.text = "Messages"
+        MessagesLabel.font = UIFont(name: "System", size: 15)
+        MessagesLabel.textColor = .white
+        MessagesLabel.translatesAutoresizingMaskIntoConstraints = false
+        //Settings Label
+        SettingsLabel.text = "Settings"
+        SettingsLabel.font = UIFont(name: "System", size: 15)
+        SettingsLabel.textColor = .white
+        SettingsLabel.translatesAutoresizingMaskIntoConstraints = false
+        //Feedback Label
+        FeedbackLabel.text = "Feedback"
+        FeedbackLabel.font = UIFont(name: "System", size: 15)
+        FeedbackLabel.textColor = .white
+        FeedbackLabel.translatesAutoresizingMaskIntoConstraints = false
+        //Profile Button
+        ProfileButton.backgroundColor = .clear
+        ProfileButton.setTitle("", for: .normal)
+        ProfileButton.translatesAutoresizingMaskIntoConstraints = false
+        //Drop Button
+        DropButton.backgroundColor = .clear
+        DropButton.setTitle("", for: .normal)
+        DropButton.translatesAutoresizingMaskIntoConstraints = false
+        //Activity Button
+        ActivityButton.backgroundColor = .clear
+        ActivityButton.setTitle("", for: .normal)
+        ActivityButton.translatesAutoresizingMaskIntoConstraints = false
+        //Messages Button
+        MessagesButton.backgroundColor = .clear
+        MessagesButton.setTitle("", for: .normal)
+        MessagesButton.translatesAutoresizingMaskIntoConstraints = false
+        //Settings Button
+        SettingsButton.backgroundColor = .clear
+        SettingsButton.setTitle("", for: .normal)
+        SettingsButton.translatesAutoresizingMaskIntoConstraints = false
+        //Feedback Button
+        FeedbackButton.backgroundColor = .clear
+        FeedbackButton.setTitle("", for: .normal)
+        FeedbackButton.translatesAutoresizingMaskIntoConstraints = false
+        //Add to subview
+        view.addSubview(background)
+        view.addSubview(natureImage)
+        view.addSubview(ImageCover)
+        view.addSubview(yLineDivider)
+        view.addSubview(xLineDividerTop)
+        view.addSubview(xLineDividerBottom)
+        //Icons
+        view.addSubview(ProfileIcon)
+        view.addSubview(DropIcon)
+        view.addSubview(ActivityIcon)
+        view.addSubview(MessagesIcon)
+        view.addSubview(SettingsIcon)
+        view.addSubview(FeedbackIcon)
+        //Icon Labels
+        view.addSubview(ProfileLabel)
+        view.addSubview(DropLabel)
+        view.addSubview(ActivityLabel)
+        view.addSubview(MessagesLabel)
+        view.addSubview(SettingsLabel)
+        view.addSubview(FeedbackLabel)
+        //Icon Buttons
+        view.addSubview(ProfileButton)
+        view.addSubview(DropButton)
+        view.addSubview(ActivityButton)
+        view.addSubview(MessagesButton)
+        view.addSubview(SettingsButton)
+        view.addSubview(FeedbackButton)
+    }
+    
+    func setupDrops(view: UIView!,  UploadImageView: UIImageView, ActivityIndicator: UIActivityIndicatorView, natureImage: UIImageView, ImageCover: UIView, UploadBorder: UIView, fileIDTextField: UITextField, fileIDBlackView: UIView, fileIDView: UIView, saveFileID: UIButton, successfulLabel: UILabel, navigationController: UINavigationController!) {
+        //Upload
+        UploadBorder.backgroundColor = .white
+        UploadBorder.translatesAutoresizingMaskIntoConstraints = false
+        UploadBorder.layer.cornerRadius = 21
+        UploadBorder.clipsToBounds = true
+        
+        //Successful Label
+        successfulLabel.text = "Uploaded"
+        successfulLabel.font = UIFont(name: "Futura", size: 15)
+        successfulLabel.translatesAutoresizingMaskIntoConstraints = false
+        successfulLabel.textColor = .white
+        successfulLabel.backgroundColor = UIColor(red: 0, green: 200/225, blue: 100/225, alpha: 1)
+        successfulLabel.textAlignment = .center
+        // Upload Image Action
+        UploadImageView.image = UIImage(named: "ActionButton")
+        UploadImageView.translatesAutoresizingMaskIntoConstraints = false
+        UploadImageView.layer.cornerRadius = 20
+        UploadImageView.clipsToBounds = true
+        UploadImageView.contentMode = .scaleAspectFit
+        UploadImageView.isUserInteractionEnabled = true
+        //Shadow Upload Image
+        UploadImageView.layer.shadowColor = UIColor.black.cgColor
+        UploadImageView.layer.shadowRadius = 60
+        UploadImageView.layer.shadowOffset = CGSize.init(width: 60, height: 60)
+        UploadImageView.layer.shadowOpacity = 1
+        //Activity Indicator
+        ActivityIndicator.backgroundColor = .clear
+        ActivityIndicator.color = .lightGray
+        //Nature
+        natureImage.image = UIImage(named: "Nature")
+        natureImage.alpha = 1
+        natureImage.clipsToBounds = true
+        natureImage.contentMode = .scaleAspectFill
+        natureImage.translatesAutoresizingMaskIntoConstraints = false
+        //
+        ImageCover.backgroundColor = UIColor(red: 50/255, green: 70/255, blue: 100/255, alpha: 0.9)
+        ImageCover.translatesAutoresizingMaskIntoConstraints = false
+        
+        //fileIDTextField
+        fileIDTextField.placeholder = "Enter File Name"
+        fileIDTextField.textAlignment = .center
+        fileIDTextField.font = UIFont(name: "System", size: 17)
+        fileIDTextField.translatesAutoresizingMaskIntoConstraints = false
+        fileIDTextField.borderStyle = .roundedRect
+        fileIDTextField.backgroundColor = .white
+        fileIDTextField.textColor = .lightGray
+        fileIDTextField.alpha = 0
+        //fileIDBlackView
+        fileIDBlackView.backgroundColor = .black
+        fileIDBlackView.alpha = 0
+        fileIDBlackView.translatesAutoresizingMaskIntoConstraints = false
+        fileIDBlackView.isUserInteractionEnabled = true
+        //fileIDView
+        fileIDView.backgroundColor = UIColor(red: 50/255, green: 70/255, blue: 100/255, alpha: 1)
+        fileIDView.alpha = 0
+        fileIDView.translatesAutoresizingMaskIntoConstraints = false
+        //Save File Id Button
+        saveFileID.backgroundColor = UIColor(red: 0, green: 200/225, blue: 100/225, alpha: 1)
+        saveFileID.setTitle("Save File Name", for: .normal)
+        saveFileID.setTitleColor(.white, for: .normal)
+        saveFileID.translatesAutoresizingMaskIntoConstraints = false
+        saveFileID.titleLabel?.font = UIFont(name: "System", size: 17)
+        saveFileID.alpha = 0
+        saveFileID.layer.cornerRadius = 10
+        
+        //Add to subview
+        view.addSubview(natureImage)
+        view.addSubview(ImageCover)
+        view.addSubview(ActivityIndicator)
+        view.addSubview(successfulLabel)
+        
+        
+    }
+    
+    override init(){
+        super.init()
+    }
+}
+
